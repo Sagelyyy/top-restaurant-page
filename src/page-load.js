@@ -1,12 +1,24 @@
 
 export class createElement{
-    constructor(type, eClass){
+    constructor(type, eClass, ...args){
         this.type = type;
         this.eClass = eClass;
+        this.args = args
     }
     newElement(){
         let temp = document.createElement(this.type)
         temp.classList.add(this.eClass)
-        console.log(temp)
+        switch(this.type){
+            case 'p':
+            case 'h1':
+            temp.textContent = this.args[0]
+            break
+            case 'a':
+            temp.textContent = this.args[0]
+            temp.setAttribute('href', this.args[1])
+            break
+        }
+
         return temp
+    }
 }
