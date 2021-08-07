@@ -1,13 +1,18 @@
 import './style.css'
 import splash from './images/pizza-checker.jpg'
+import { createElement } from './page-load'
 
-function componenet(){
+function component(){
     const content = document.querySelector('#content')
-
     const myImage = new Image()
+
     myImage.src = splash
-
     content.appendChild(myImage)
-}
 
-document.body.appendChild(componenet())
+    const myP = new createElement('p', 'test')
+    content.appendChild(myP.newElement())
+
+    return content
+
+}
+document.body.appendChild(component())
