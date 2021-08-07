@@ -15,19 +15,21 @@ img{
     margin-right: auto;
     width: 70%;
     height: auto;
+    padding-bottom: 50px;
 }
 
 .descriptor{
     text-align: center;
     font-family: Philosopher;
-    font-size: 50px;
+    font-size: 20px;
+    margin-top: -30px;
 }
 
 .title{
     padding-top: 30px;
     text-align: center;
     font-family: Philosopher;
-    font-size: 50px;
+    font-size: 60px;
 }
 
 .nav-bar, a, a:visited{
