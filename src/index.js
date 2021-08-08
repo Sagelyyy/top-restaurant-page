@@ -37,7 +37,6 @@ function main(){
 
 
     //setup the navbar
-
     const nav = new createElement('nav', 'nav-bar')
     content.appendChild(nav.newElement())
     const navBar = document.querySelector('.nav-bar')
@@ -47,6 +46,8 @@ function main(){
     navBar.appendChild(menuNav.newElement())
     const aboutNav = new createElement('a', 'nav', 'About', '#')
     navBar.appendChild(aboutNav.newElement())
+    const contactNav = new createElement('a', 'nav', 'Contact', '#')
+    navBar.appendChild(contactNav.newElement())
 
     //setup the listeners
     const navigationMenu = document.querySelectorAll('.nav')
@@ -67,7 +68,6 @@ function menu(){
     const newContentArea = document.querySelector('.content-area')
     let menuArray = []
     clearContent()
-    let menuLength = 6
     let item = new newMenu(
         'menu-item', 'Pepperoni & Black Olive', 
         'Delicious hand-cut pepperonis with black olives picked ' +
@@ -202,6 +202,42 @@ function about(){
 
 }
 
+function contact() {
+    const newContentArea = document.querySelector('.content-area')
+    clearContent()
+    let contactForm = new createElement('form', 'contact-form')
+    newContentArea.appendChild(contactForm.newElement())
+    let contactFormq = document.querySelector('.contact-form')
+
+    let contactTitle = new createElement(
+        'h2', 'title-form', 'Get a hold of us')
+    contactFormq.appendChild(contactTitle.newElement())
+    let thanks = new createElement(
+        'p', 'thanks-form', 'Thanks for the feedback!')
+    contactFormq.appendChild(thanks.newElement())
+    let thanksQ = document.querySelector('.thanks-form')
+    thanksQ.setAttribute('hidden', true)
+    let emailForm = new createElement(
+        'input', 'email-form', 'your@email.com', 'email', 'true')
+    contactFormq.appendChild(emailForm.newElement())
+    let messageForm = new createElement(
+        'textarea', 'text-form', 'Any feedback?', null, 'true')
+    contactFormq.appendChild(messageForm.newElement())
+    let buttonForm = new createElement(
+        'button', 'button-form', 'Submit'
+    )
+    contactFormq.appendChild(buttonForm.newElement())
+    let buttonFormq = document.querySelector('.button-form')
+    buttonFormq.onclick = () => {
+        let thanksQ = document.querySelector('.thanks-form')
+        let emailFormq = document.querySelector('.email-form')
+        let messageFormq = document.querySelector('.text-form')
+        emailFormq.value = ''
+        messageFormq.value = ''
+        thanksQ.hidden = false
+    }
+}
+
 function clearContent(){
     const newContentArea = document.querySelector('.content-area')
     while(newContentArea.childNodes.length >= 1){
@@ -219,6 +255,9 @@ function navigationHandler(e){
             break;
         case 'About':
             about()
+            break;
+        case 'Contact':
+            contact()
             break;
     }
 }

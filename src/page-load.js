@@ -12,12 +12,20 @@ export class createElement{
             case 'p':
             case 'h1':
             case 'h2':
-            temp.textContent = this.args[0]
+            case 'button':
+                temp.textContent = this.args[0]
             break
             case 'a':
-            temp.textContent = this.args[0]
-            temp.setAttribute('href', this.args[1])
-            break
+                temp.textContent = this.args[0]
+                temp.setAttribute('href', this.args[1])
+            break;
+            case 'input':
+            case 'textarea':
+                temp.setAttribute('placeholder', this.args[0])
+                temp.setAttribute('type', this.args[1])
+                temp.setAttribute('required', this.args[3])
+            break;
+
         }
 
         return temp
