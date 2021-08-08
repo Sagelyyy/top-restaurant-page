@@ -47,3 +47,39 @@ a:hover{
     text-decoration: underline;
     color: #592202;
 }
+
+.menu-item{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    border-radius: 5px;
+    background-color: #D9AB82;
+    border-bottom: solid black;
+}
+
+.menu-item:hover{
+    background-color: #BF4904;
+    cursor: pointer;
+}
+
+.item-desc{
+    margin-top: -10px;
+    margin-left: 5px;
+}
+
+.item-title{
+    margin-left: 5px;
+}
+
+.menu-item-img{
+    margin: 0 !important;
+    margin-left: 0;
+    width: 30%;
+    padding: 0;
+}
+
+*{
+    outline: none;
+}

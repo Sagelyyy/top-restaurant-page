@@ -11,6 +11,7 @@ export class createElement{
         switch(this.type){
             case 'p':
             case 'h1':
+            case 'h2':
             temp.textContent = this.args[0]
             break
             case 'a':

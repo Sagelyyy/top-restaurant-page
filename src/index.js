@@ -1,6 +1,11 @@
 import './style.css'
 import splash from './images/pizza-checker.jpg'
+import menu1 from './images/pizza-close.jpg'
+import menu2 from './images/pizza-thin.jpg'
+import menu3 from './images/pizza-sliced.jpg'
+import menu4 from './images/inkys-special.jpg'
 import { createElement } from './page-load'
+import { newMenu } from './menu-item'
 
 function main(){
     const content = document.querySelector('#content')
@@ -44,9 +49,105 @@ function main(){
 
 function menu(){
     const newContentArea = document.querySelector('.content-area')
+    let menuArray = []
     clearContent()
-    const menuItem = new createElement('p', 'menu1', 'This is a food')
-    newContentArea.appendChild(menuItem.newElement())
+    let menuLength = 6
+    let item = new newMenu(
+        'menu-item', 'Pepperoni & Black Olive', 
+        'Delicious hand-cut pepperonis with black olives picked ' +
+        'straight from the olive tree.', 
+        'src/images/pizza-close.jpg')
+    newContentArea.appendChild(item.newItem())
+    menuArray.push(item)
+        let item2 = new newMenu(
+        'menu-item', 'Flat Pan Pizza', 
+        'Amazing flat pan pizza with fresh picked veggies', 
+        'src/images/pizza-close.jpg')
+    newContentArea.appendChild(item2.newItem())
+    menuArray.push(item2)
+    let item3 = new newMenu(
+        'menu-item', 'Hand Cut Veggie', 
+        'Our one of a kind hand cut veggie pizza with  our ' +
+        'all organic, locally grown vegetables', 
+        'src/images/pizza-close.jpg')
+    newContentArea.appendChild(item3.newItem())
+    menuArray.push(item3)
+    let item4 = new newMenu(
+        'menu-item', "Inky's Special", 
+        "Inky's paw picked pizza, black and white like " +
+        "his little fury body. Inky would love this...if " +
+        "he could eat it!", 
+        'src/images/pizza-close.jpg')
+    newContentArea.appendChild(item4.newItem())
+    menuArray.push(item4)
+    const menuItems = document.querySelectorAll('.menu-item')
+    for(let i = 0;i < menuItems.length;i++){
+        switch(i){
+            case 0:
+                let currImg = new Image()
+                currImg.src = menu1
+                currImg.classList.add('menu-item-img')
+                menuItems[i].appendChild(currImg)
+                let textDiv1 = new createElement('div', 'menu-text-div1')
+                menuItems[i].appendChild(textDiv1.newElement())
+                let textDivq1 = document.querySelector('.menu-text-div1')
+                let currTitle = new createElement(
+                    'h2', 'item-title', menuArray[i].title)
+                textDivq1.appendChild(currTitle.newElement())
+                let currDesc = new createElement(
+                    'p', 'item-desc', menuArray[i].description)
+                textDivq1.appendChild(currDesc.newElement())
+                break
+            case 1:{
+                let currImg = new Image()
+                currImg.src = menu2
+                currImg.classList.add('menu-item-img')
+                menuItems[i].appendChild(currImg)
+                let textDiv2 = new createElement('div', 'menu-text-div2')
+                menuItems[i].appendChild(textDiv2.newElement())
+                let textDivq2 = document.querySelector('.menu-text-div2')
+                let currTitle = new createElement(
+                    'h2', 'item-title', menuArray[i].title)
+                textDivq2.appendChild(currTitle.newElement())
+                let currDesc = new createElement(
+                    'p', 'item-desc', menuArray[i].description)
+                textDivq2.appendChild(currDesc.newElement())
+                break
+            }
+            case 2:{
+                let currImg = new Image()
+                currImg.src = menu3
+                currImg.classList.add('menu-item-img')
+                menuItems[i].appendChild(currImg)
+                let textDiv3 = new createElement('div', 'menu-text-div3')
+                menuItems[i].appendChild(textDiv3.newElement())
+                let textDivq3 = document.querySelector('.menu-text-div3')
+                let currTitle = new createElement(
+                    'h2', 'item-title', menuArray[i].title)
+                textDivq3.appendChild(currTitle.newElement())
+                let currDesc = new createElement(
+                    'p', 'item-desc', menuArray[i].description)
+                textDivq3.appendChild(currDesc.newElement())
+                break
+            }
+            case 3:{
+                let currImg = new Image()
+                currImg.src = menu4
+                currImg.classList.add('menu-item-img')
+                menuItems[i].appendChild(currImg)
+                let textDiv4 = new createElement('div', 'menu-text-div4')
+                menuItems[i].appendChild(textDiv4.newElement())
+                let textDivq4 = document.querySelector('.menu-text-div4')
+                let currTitle = new createElement(
+                    'h2', 'item-title', menuArray[i].title)
+                textDivq4.appendChild(currTitle.newElement())
+                let currDesc = new createElement(
+                    'p', 'item-desc', menuArray[i].description)
+                textDivq4.appendChild(currDesc.newElement())
+                break
+            }
+        }
+    }
 }
 
 function home(){
