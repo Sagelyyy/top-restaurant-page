@@ -4,24 +4,40 @@ import menu1 from './images/pizza-close.jpg'
 import menu2 from './images/pizza-thin.jpg'
 import menu3 from './images/pizza-sliced.jpg'
 import menu4 from './images/inkys-special.jpg'
+import aboutChef from './images/chef-inky-hat.jpg'
+import logoImg from './images/chef-inky-logo.png'
 import { createElement } from './page-load'
 import { newMenu } from './menu-item'
 
 function main(){
+    const logo = new Image()
+    logo.src = logoImg
+    logo.classList.add('chef-logo')
+
+
     const content = document.querySelector('#content')
+    const topContent = new createElement('div', 'top-content')
+    content.appendChild(topContent.newElement())
+    const topContentq = document.querySelector('.top-content')
+    topContentq.appendChild(logo)
+    const topContentText = new createElement('div', 'top-content-text')
+    topContentq.appendChild(topContentText.newElement())
+    const topContentTextq = document.querySelector('.top-content-text')
     const myImage = new Image()
+
 
     const title = new createElement(
         'h1', 'title', "Inky's Pizzeria"
     )
-    content.appendChild(title.newElement())
+    topContentTextq.appendChild(title.newElement())
     const description = new createElement(
         'p', 'descriptor', 
         "The finest artisanal pizzas")
-    content.appendChild(description.newElement())
+    topContentTextq.appendChild(description.newElement())
 
 
     //setup the navbar
+
     const nav = new createElement('nav', 'nav-bar')
     content.appendChild(nav.newElement())
     const navBar = document.querySelector('.nav-bar')
@@ -75,7 +91,7 @@ function menu(){
     let item4 = new newMenu(
         'menu-item', "Inky's Special", 
         "Inky's paw picked pizza, black and white like " +
-        "his little fury body. Inky would love this...if " +
+        "his little furry body. Inky would love this...if " +
         "he could eat it!", 
         'src/images/pizza-close.jpg')
     newContentArea.appendChild(item4.newItem())
@@ -161,6 +177,29 @@ function home(){
 function about(){
     const newContentArea = document.querySelector('.content-area')
     clearContent()
+    let currImg = new Image()
+    currImg.src = aboutChef
+    currImg.classList.add('chef-img')
+    
+    let aboutDiv = new createElement('div', 'about-div')
+    newContentArea.appendChild(aboutDiv.newElement())
+    let aboutDivq = document.querySelector('.about-div')
+    let aboutTextDiv = new createElement('div', 'chef-text-div')
+    aboutDivq.appendChild(currImg)
+    aboutDivq.appendChild(aboutTextDiv.newElement())
+    let chefTextDivq = document.querySelector('.chef-text-div')
+    let currTitle =  new createElement(
+        'h2', 'about-title', 'About Chef Inky')
+        chefTextDivq.appendChild(currTitle.newElement())
+    let currDesc = new createElement(
+        'p', 'about-desc',
+        'Chef Inky always had a curiousity for food, and loved to ' +
+        'experiment with new flavors. Founded since the beginning of ' +
+        'time, Chef inky has strived for one thing. To fill the plate ' +
+        'with as much delicious food as possible.'
+    )
+    chefTextDivq.appendChild(currDesc.newElement())
+
 }
 
 function clearContent(){
